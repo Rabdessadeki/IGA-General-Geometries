@@ -50,10 +50,10 @@ def tensor_to_matrix(Mat, nh, nm) :
 
 # Test 2
 
-Uex = lambda x, y : 1.-x**2-y**2
-dUx = lambda x, y : -2*x 
-dUy = lambda x, y : -2*y
-f   = lambda x, y : 0.*x+4.
+#Uex = lambda x, y : 1.-x**2-y**2
+#dUx = lambda x, y : -2*x 
+#dUy = lambda x, y : -2*y
+#f   = lambda x, y : 0.*x+4.
                    
 #Test 2 
 
@@ -64,13 +64,13 @@ f   = lambda x, y : 0.*x+4.
 F1= lambda x1, x2 : (x1+1.0)*cos(0.5*pi*x2)
 F2= lambda x1, x2 : (x1+1.0)*sin(0.5*pi*x2)
 
-Uex = lambda x, y : 2.*x*cos(pi*y) 
-dUx = lambda x, y : 2.*cos(pi*y)  
-dUy = lambda x, y : -2*pi*x*sin(pi*y)
-f   = lambda x, y : 2.*x*pi**2*cos(pi*y)
+#Uex = lambda x, y : 2.*x*cos(pi*y) 
+#dUx = lambda x, y : 2.*cos(pi*y)  
+#dUy = lambda x, y : -2*pi*x*sin(pi*y)
+#f   = lambda x, y : 2.*x*pi**2*cos(pi*y)
 
 # Test 3 Non homogenous Boundary Conditions
-'''
+
 
 kappa = 2
 
@@ -78,7 +78,7 @@ Uex   = lambda x,y :  cos(pi*kappa*x)- sin(2*kappa*pi*y)
 dUx   = lambda x,y : -pi*kappa*sin(pi*kappa*x)
 dUy   = lambda x,y : - 2*kappa*pi*cos(2*kappa*pi*y)
 f     = lambda x,y : (pi*kappa)**2*cos(pi*kappa*x)- (2*kappa*pi)**2*sin(2*kappa*pi*y)
-'''
+
 p1, p2                   = (2 , 2)
 ne1, ne2                = (32 , 32)
 a, b, c, d = 0., 1., 0., 1.
@@ -157,8 +157,8 @@ def plot_field_2D(knots1, knots2, degree1, degree2, u, nx = 101, ny=101):
     #ax.plot_surface(Xc,Yc, P[:,:,0].T, cmap ='viridis', edgecolor ='yellow')
 
     ax.plot_surface(Xc, Yc, P[:,:,0].T, cmap=cm.coolwarm, linewidth=0, antialiased=False)
-    ax.set_xlim(-1.0, 1.0)
-    ax.set_ylim(-1.0, 1.0)
+    ax.set_xlim(0.0, 2.0)
+    ax.set_ylim(0.0, 2.0)
     ax.zaxis.set_major_locator(LinearLocator(10))
     ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
     # ax.set_title('Approximate solution')
@@ -192,8 +192,8 @@ ax = plt.axes(projection = '3d')
     
 #ax.plot_surface(Xc,Yc, sol, cmap ='viridis', edgecolor ='yellow')
 ax.plot_surface(Xc, Yc, sol, cmap=cm.coolwarm, linewidth=0, antialiased=False)
-ax.set_xlim(-1.0, 1.0)
-ax.set_ylim(-1.0, 1.0)
+ax.set_xlim(0., 2.0)
+ax.set_ylim(0.0, 2.0)
 ax.zaxis.set_major_locator(LinearLocator(10))
 ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
 ax.set_xlabel('F1',  fontweight ='bold')
